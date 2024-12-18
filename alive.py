@@ -37,12 +37,12 @@ def check_host_reachable(file_path):
                 
                 # Verifico il return code
                 if result.returncode == 0:
-                    with open("alive.txt", "w") as alive:  # Uso append per non sovrascrivere
+                    with open("alive.txt", "a") as alive:  # Uso append per non sovrascrivere
                         i += 1
                         alive.write(f"[{i}]\t{url}\n")
                     print(f"{GREEN}[+] L'host '{url}' è UP.{RESET}")
                 else:
-                    continue
+                    print(f"{YELLOW}[-] L'host '{url}' sembra DOWN.{RESET}")
             
             except Exception as e:
                 print(f"{RED}[!] Errore nell'eseguire il ping su {url}: {e}{RESET}")

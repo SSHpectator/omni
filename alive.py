@@ -37,7 +37,7 @@ def check_host_reachable(file_path):
                 
                 # Verifico il return code
                 if result.returncode == 0:
-                    with open("alive.txt", "a") as alive:  # Uso append per non sovrascrivere
+                    with open("alive.txt", "w") as alive:  # Uso append per non sovrascrivere
                         i += 1
                         alive.write(f"[{i}]\t{url}\n")
                     print(f"{GREEN}[+] L'host '{url}' è UP.{RESET}")
